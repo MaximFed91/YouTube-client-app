@@ -1,8 +1,6 @@
-<div class="results__wrapper">
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
+<div *ngIf="items.length" class="results__wrapper">
+  <app-search-item
+    *ngFor="let item of items"
+    [item]="item"
+  ></app-search-item>
 </div>

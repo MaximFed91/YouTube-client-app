@@ -39,7 +39,7 @@ export interface IResponseItem {
   };
 }
 
-export interface Response {
+export interface IResponse {
   kind: string;
   etag: string;
   pageInfo: {

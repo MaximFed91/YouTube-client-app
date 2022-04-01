@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IResponseItem } from './response.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'youtube-client-app';
+  items: IResponseItem[] = [];
+
+  setItems(arr: IResponseItem[]) {
+    this.items = arr;
+  }
 }

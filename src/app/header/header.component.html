@@ -5,9 +5,9 @@
     </div>
     <div class="search">
       <input type="text" class="search__input" #search>
-      <button class="search__btn">search</button>
+      <button class="search__btn" (click)="getResponse()">search</button>
     </div>
-    <button class="settings">
+    <button class="settings" (click)="toggleSettings()">
       <img src="../../assets/img/btn-settings.svg" alt="settings" class="settings__img">
     </button>
   </div>
@@ -16,5 +16,5 @@
   </div>
 </div>
 <div class="filter__container">
-  <app-filter-block></app-filter-block>
+  <app-filter-block [isHidden]="isSettingsHidden"></app-filter-block>
 </div>

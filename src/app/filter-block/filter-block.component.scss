@@ -2,16 +2,13 @@
   &__wrapper {
     display: flex;
     align-items: center;
-    padding-top: 20px;
     font-size: 12px;
     line-height: 14px;
-    height: auto;
-    max-height: 100px;
+    height: 40px;
     transition: all 0.5s;
 
     &_hidden {
       height: 0;
-      max-height: 0;
       overflow: hidden;
       transition: all 0.5s;
     }
