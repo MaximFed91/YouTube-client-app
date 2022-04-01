@@ -1,1 +1,20 @@
-<p>header works!</p>
+<div class="header__wrapper">
+  <div class="search__container">
+    <div class="logo">
+      <img src="../../assets/img/logo.svg" alt="logo" class="logo">
+    </div>
+    <div class="search">
+      <input type="text" class="search__input" #search>
+      <button class="search__btn">search</button>
+    </div>
+    <button class="settings">
+      <img src="../../assets/img/btn-settings.svg" alt="settings" class="settings__img">
+    </button>
+  </div>
+  <div class="login__container">
+    <app-login-block></app-login-block>
+  </div>
+</div>
+<div class="filter__container">
+  <app-filter-block></app-filter-block>
+</div>

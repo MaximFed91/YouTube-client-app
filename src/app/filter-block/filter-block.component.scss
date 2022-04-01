@@ -1,0 +1,39 @@
+.filter {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 12px;
+    line-height: 14px;
+    height: auto;
+    max-height: 100px;
+    transition: all 0.5s;
+
+    &_hidden {
+      height: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s;
+    }
+  }
+  &__text {
+    margin-right: 11px;
+    color: #929292;
+  }
+  &__label {
+    margin-right: 10px;
+    color: #2f80ed;
+  }
+  &__input {
+    width: 149px;
+    height: 13px;
+    border: none;
+  }
+}
+
+button {
+  background-color: transparent;
+  margin-right: 21px;
+  text-decoration-line: underline;
+  color: #2f80ed;
+}
