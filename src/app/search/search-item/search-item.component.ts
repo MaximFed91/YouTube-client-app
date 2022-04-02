@@ -17,6 +17,7 @@ export class SearchItemComponent {
       dislikeCount: this.item.statistics.dislikeCount,
       commentCount: this.item.statistics.commentCount,
       title: this.item.snippet.title,
+      date: this.item.snippet.publishedAt,
     };
   }
 }
