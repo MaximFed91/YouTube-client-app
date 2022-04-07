@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IResponseItem } from './response.interface';
+import { IResponseItem } from './core/response.model';
 
 @Component({
   selector: 'app-root',

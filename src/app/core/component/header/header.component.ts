@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import response from '../common/youtube-response.json';
-import { IResponse, IResponseItem } from '../response.interface';
+import { IResponse, IResponseItem } from '../../response.model';
 
 @Component({
   selector: 'app-header',

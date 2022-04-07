@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { IResponseItem } from 'src/app/response.interface';
-import { FilterDataService } from 'src/app/services/filter-data.service';
-import { ISort } from 'src/app/services/sort.model';
+import { IResponseItem } from 'src/app/core/response.model';
+import { FilterDataService } from 'src/app/core/services/filter-data.service';
+import { ISort } from 'src/app/core/services/sort.model';
 
 @Component({
   selector: 'app-search-results',

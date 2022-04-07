@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import getBorderColor from 'src/app/common/helpers';
+import getBorderColor from 'src/app/core/common/helpers';
 
 @Directive({
   selector: '[appBorderColor]',

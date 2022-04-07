@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IResponseItem } from 'src/app/response.interface';
+import { IResponseItem } from 'src/app/core/response.model';
 
 @Component({
   selector: 'app-search-item',
