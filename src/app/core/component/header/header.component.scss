@@ -32,6 +32,12 @@
     border-radius: 0 4px 4px 0px;
   }
 }
+.logo {
+  &__link {
+    display: block;
+    cursor: pointer;
+  }
+}
 .settings {
   background-color: transparent;
   width: 24px;

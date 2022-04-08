@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import response from '../../common/youtube-response.json';
-import { IResponse, IResponseItem } from '../../response.model';
+import { IResponse } from '../../response.model';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +12,15 @@ import { IResponse, IResponseItem } from '../../response.model';
 export class HeaderComponent {
   isSettingsHidden = true;
   resp: IResponse = response;
-  @Output() getItems = new EventEmitter<IResponseItem[]>();
+  inputValue = '';
+
+  constructor(private router: Router, private readonly searchService: SearchService) {}
 
   toggleSettings() {
     this.isSettingsHidden = !this.isSettingsHidden;
   }
   getResponse() {
-    this.getItems.emit(this.resp.items);
+    this.router.navigate(['/search']);
+    this.searchService.getResult(this.inputValue);
   }
 }

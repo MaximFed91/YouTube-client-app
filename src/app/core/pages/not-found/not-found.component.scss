@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  height: calc(100vh - 124px);
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+p {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #828282;
+}

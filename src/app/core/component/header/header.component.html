@@ -1,10 +1,14 @@
 <div class="header__wrapper">
   <div class="search__container">
     <div class="logo">
-      <img src="../../assets/img/logo.svg" alt="logo" class="logo">
+      <nav>
+        <a routerLink="/" class="logo__link" routerLinkActive="active">
+          <img src="../../assets/img/logo.svg" alt="logo" class="logo">
+        </a>
+      </nav>
     </div>
     <div class="search">
-      <input type="text" class="search__input" #search>
+      <input type="text" class="search__input" [(ngModel)]="inputValue">
       <button class="search__btn" (click)="getResponse()">search</button>
     </div>
     <button class="settings" (click)="toggleSettings()">
