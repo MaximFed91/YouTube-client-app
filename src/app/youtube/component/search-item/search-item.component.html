@@ -2,24 +2,7 @@
   <div class="item__img_wrapper">
     <img src="{{getSours().imgUrl}}" alt="" class="item__img">
   </div>
-  <div class="item__statistics">
-    <div class="item__statistics_itm">
-      <img src="../../../assets/img/viewed.svg" alt="viewed">
-      <p>{{getSours().viewCount}}</p>
-    </div>
-    <div class="item__statistics_itm">
-      <img src="../../../assets/img/liked.svg" alt="liked">
-      <p>{{getSours().likeCount}}</p>
-    </div>
-    <div class="item__statistics_itm">
-      <img src="../../../assets/img/dislike.svg" alt="dislike">
-      <p>{{getSours().dislikeCount}}</p>
-    </div>
-    <div class="item__statistics_itm">
-      <img src="../../../assets/img/comments.svg" alt="comments">
-      <p>{{getSours().commentCount}}</p>
-    </div>
-  </div>
+  <app-statistics [item]="item"></app-statistics>
   <p class="item__title">{{getSours().title}}</p>
-  <button class="item__btn">more...</button>
+  <button class="item__btn" [routerLink]="['info', getSours().id]">more...</button>
 </div>

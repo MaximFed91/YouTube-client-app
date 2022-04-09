@@ -15,19 +15,6 @@
     height: 100%;
     object-fit: cover;
   }
-  &__statistics {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 21px;
-    &_itm {
-      display: flex;
-      column-gap: 3px;
-      & p {
-        font-size: 10px;
-        line-height: 12px;
-      }
-    }
-  }
   &__title {
     font-weight: 700;
     font-size: 20px;

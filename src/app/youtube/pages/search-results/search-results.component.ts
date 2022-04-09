@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IResponseItem } from 'src/app/core/response.model';
 import { FilterDataService } from 'src/app/core/services/filter-data.service';
 import { SearchService } from 'src/app/core/services/search.service';
@@ -9,7 +9,7 @@ import { ISort } from 'src/app/core/services/sort.model';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnInit, OnDestroy {
+export class SearchResultsComponent implements OnInit {
   items: IResponseItem[] = [];
   str = '';
   sort: ISort = {
@@ -31,12 +31,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.searchService.searchResult$.subscribe((resp) => {
       this.items = resp;
     });
-    this.searchService.getResult('re');
-  }
-
-  ngOnDestroy(): void {
-    this.filterData.filterStr$.unsubscribe();
-    this.filterData.filterSort$.unsubscribe();
-    this.searchService.searchResult$.unsubscribe();
+    this.searchService.getResult();
   }
 }

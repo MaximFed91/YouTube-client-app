@@ -1,1 +1,10 @@
-<p>login works!</p>
+<div class="form">
+  <h3 class="title">
+    Login
+  </h3>
+  <p class="label__login">login</p>
+  <input type="text" class="name" [(ngModel)]="name">
+  <p class="label__pass">password</p>
+  <input type="text" class="pass" [(ngModel)]="pass">
+  <button (click)="login()">Login</button>
+</div>

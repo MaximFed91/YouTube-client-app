@@ -21,6 +21,7 @@ export class HeaderComponent {
   }
   getResponse() {
     this.router.navigate(['/search']);
-    this.searchService.getResult(this.inputValue);
+    this.searchService.setStr(this.inputValue);
+    this.searchService.getResult();
   }
 }

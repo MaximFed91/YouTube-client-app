@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 21px;
+}
+.item__statistics {
+  &_itm {
+    display: flex;
+    column-gap: 3px;
+    & p {
+      font-size: 10px;
+      line-height: 12px;
+    }
+  }
+}

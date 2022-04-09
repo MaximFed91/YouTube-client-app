@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="img__inner">
+    <img src="{{getSours().imgUrl}}" alt="img">
+  </div>
+  <div class="info" appBorderColor [pubDate]="getSours().date">
+    <div class="top">
+      <h3 class="title">{{getSours().title}}</h3>
+      <p class="date">{{getSours().date}}</p>
+    </div>
+    <h6 class="desc">Description:</h6>
+    <p class="text">
+      {{getSours().description}}
+    </p>
+    <div class="stat__container">
+      <app-statistics [item]="item"></app-statistics>
+    </div>
+  </div>
+  <button class="back" routerLink="/search">
+    <img src="/assets/img/back-button.svg" alt="back">
+  </button>
+</div>

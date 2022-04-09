@@ -12,12 +12,9 @@ export class SearchItemComponent {
   getSours() {
     return {
       imgUrl: this.item.snippet.thumbnails.medium.url,
-      viewCount: this.item.statistics.viewCount,
-      likeCount: this.item.statistics.likeCount,
-      dislikeCount: this.item.statistics.dislikeCount,
-      commentCount: this.item.statistics.commentCount,
       title: this.item.snippet.title,
       date: this.item.snippet.publishedAt,
+      id: this.item.id,
     };
   }
 }

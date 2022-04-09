@@ -9,9 +9,14 @@ import response from '../common/youtube-response.json';
 export class SearchService {
   searchResult$ = new Subject<IResponseItem[]>();
   resp: IResponse = response;
-
-  getResult(str?: string) {
-    if (str) {
+  str = '';
+  result!: IResponseItem[];
+  setStr(searchStr: string) {
+    this.str = searchStr;
+  }
+  getResult() {
+    if (this.str) {
+      this.result = this.resp.items;
       this.searchResult$.next(this.resp.items);
     } else {
       this.searchResult$.next([]);

@@ -6,6 +6,7 @@ import { FilterBlockComponent } from './component/filter-block/filter-block.comp
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MainComponent } from './pages/main/main.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { MainComponent } from './pages/main/main.component';
     NotFoundComponent,
     MainComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, AppRoutingModule],
   exports: [HeaderComponent],
 })
 export class CoreModule {}
