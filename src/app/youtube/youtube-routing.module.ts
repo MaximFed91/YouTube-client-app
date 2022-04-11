@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
 import { ItemInfoComponent } from './pages/item-info/item-info.component';
+import { InfoGuard } from './guards/info.guard';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   {
     path: 'info/:id',
     component: ItemInfoComponent,
+    canActivate: [InfoGuard],
   },
 ];
 
