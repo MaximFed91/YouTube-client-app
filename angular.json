@@ -118,6 +118,9 @@
   },
   "defaultProject": "youtube-client-app",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@angular-eslint/schematics",
+    "warnings": {
+      "versionMismatch": false
+    }
   }
 }
