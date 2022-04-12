@@ -1,0 +1,55 @@
+:host {
+  background-color: #e5e5e5;
+  padding: 15px 0;
+  display: block;
+}
+.header__wrapper {
+  position: relative;
+  max-width: 1220px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.search {
+  &__container {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+  &__input {
+    width: 396px;
+    height: 24px;
+    border: none;
+    background-color: #efefef;
+  }
+  &__btn {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 5px 22px;
+    background-color: #2F80ED;
+    color: white;
+    border-radius: 0 4px 4px 0px;
+  }
+}
+.logo {
+  &__link {
+    display: block;
+    cursor: pointer;
+  }
+}
+.settings {
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+}
+.login__container {
+  position: absolute;
+  right: 23px;
+  top: 0px;
+}
+.filter__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

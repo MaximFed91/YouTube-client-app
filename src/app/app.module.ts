@@ -3,29 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
-import { SearchItemComponent } from './search/search-item/search-item.component';
-import { LoginBlockComponent } from './header/login-block/login-block.component';
-import { FilterBlockComponent } from './filter-block/filter-block.component';
-import { BorderColorDirective } from './search/derectives/border-color.directive';
-import { SortPipe } from './search/pipes/sort.pipe';
-import { FilterPipe } from './search/pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SearchResultsComponent,
-    SearchItemComponent,
-    LoginBlockComponent,
-    FilterBlockComponent,
-    BorderColorDirective,
-    SortPipe,
-    FilterPipe,
-  ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, CoreModule],
   providers: [],
   bootstrap: [AppComponent],
 })

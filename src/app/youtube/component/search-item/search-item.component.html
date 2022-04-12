@@ -1,0 +1,8 @@
+<div class="item" appBorderColor [pubDate]="getSours().date">
+  <div class="item__img_wrapper">
+    <img src="{{getSours().imgUrl}}" alt="" class="item__img">
+  </div>
+  <app-statistics [item]="item"></app-statistics>
+  <p class="item__title">{{getSours().title}}</p>
+  <button class="item__btn" [routerLink]="['info', getSours().id]">more...</button>
+</div>
