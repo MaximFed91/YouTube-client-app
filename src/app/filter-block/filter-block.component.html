@@ -1,0 +1,7 @@
+<div [class.filter__wrapper_hidden]="isHidden" class="filter__wrapper">
+  <p class="filter__text">Sorting by:</p>
+  <button class="filter__date" (click)="toggleSortDate()">date</button>
+  <button class="filter__views" (click)="toggleSortViews()">count of views</button>
+  <p class="filter__label">by word or sentance</p>
+  <input type="text" class="filter__input" [(ngModel)]="str" (change)="setFilterStr()">
+</div>

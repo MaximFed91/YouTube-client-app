@@ -1,1 +1,6 @@
-<p>search-results works!</p>
+<div *ngIf="items.length" class="results__wrapper">
+  <app-search-item
+    *ngFor="let item of items | filter: str | sort: sort.sortBy: sort.order"
+    [item]="item"
+  ></app-search-item>
+</div>
