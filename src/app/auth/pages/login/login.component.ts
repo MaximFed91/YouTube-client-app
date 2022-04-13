@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
+import checkPassValidation from '../../shared/check-pass.validation';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { LoginService } from '../../services/login.service';
 export class LoginComponent {
   loginForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.email]),
-    pass: new FormControl(''),
+    pass: new FormControl('', [Validators.required, checkPassValidation]),
   });
   constructor(private loginService: LoginService) {}
 

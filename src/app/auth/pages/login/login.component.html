@@ -9,5 +9,14 @@
   </div>
   <label class="label__pass">password</label>
   <input type="text" class="pass" name="pass" formControlName="pass" placeholder="Please enter a password">
-  <button [disabled]="loginForm.invalid">Login</button>
+  <div class="alert" *ngIf="loginForm.controls['pass'].invalid && loginForm.controls['pass'].touched">
+    Your password isn't strong enough:
+    <ul>
+      <li>at least 8 characters</li>
+      <li>a mixture of both uppercase and lowercase letters</li>
+      <li>a mixture of letters and numbers</li>
+      <li>inclusion of at least one special character, e.g., ! @ # ? }</li>
+    </ul>
+  </div>
+  <button>Login</button>
 </form>

@@ -1,0 +1,24 @@
+<form [formGroup]="cardForm" (ngSubmit)="submit()">
+  <h3>Create new card</h3>
+  <label>Title</label>
+  <input type="text" formControlName="title">
+  <div class="alert" *ngIf="cardForm.controls['title'].invalid && cardForm.controls['title'].touched">
+    {{getMessageTitle()}}
+  </div>
+  <label>Description</label>
+  <input type="text" formControlName="description">
+  <div class="alert" *ngIf="cardForm.controls['description'].invalid && cardForm.controls['description'].touched">
+    The description is too long
+  </div>
+  <label>Img</label>
+  <input type="text" formControlName="img">
+  <div class="alert">
+    {{getMessageImg()}}
+  </div>
+  <label>Link video</label>
+  <input type="text" formControlName="video">
+  <div class="alert">
+    {{getMessageVideo()}}
+  </div>
+  <button>Create card</button>
+</form>
