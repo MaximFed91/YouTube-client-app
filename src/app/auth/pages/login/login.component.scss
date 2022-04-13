@@ -6,7 +6,6 @@
 }
 .form {
   width: 350px;
-  height: 250px;
   background: #f2f2f2;
   padding: 26px;
   padding-left: 20px;
@@ -18,7 +17,7 @@
   line-height: 21px;
   margin-bottom: 11px;
 }
-p {
+label {
   font-size: 10px;
   line-height: 12px;
   color: #828282;
@@ -38,6 +37,10 @@ input {
 }
 .pass {
   margin-bottom: 22px;
+}
+.alert {
+  color: red;
+  font-size: 12px;
 }
 button {
   float: right;

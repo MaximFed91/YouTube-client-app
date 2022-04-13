@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -7,11 +8,13 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  name = '';
-  pass = '';
+  loginForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.email]),
+    pass: new FormControl(''),
+  });
   constructor(private loginService: LoginService) {}
 
-  login() {
-    this.loginService.login(this.name, this.pass);
+  submit() {
+    this.loginService.login(this.loginForm.value.name, this.loginForm.value.pass);
   }
 }

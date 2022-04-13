@@ -13,7 +13,7 @@ export class LoginService {
       this.isLogin = true;
     }
   }
-  login(name: string, pass: string) {
+  login(name?: string, pass?: string) {
     if (name && pass) {
       const user = {
         user: name,
