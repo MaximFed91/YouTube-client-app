@@ -2,8 +2,16 @@
   <h3>Create new card</h3>
   <label>Title</label>
   <input type="text" formControlName="title">
-  <div class="alert" *ngIf="cardForm.controls['title'].invalid && cardForm.controls['title'].touched">
-    {{getMessageTitle()}}
+  <div class="alert" *ngIf="cardForm.controls['title'].invalid && (cardForm.controls['title'].dirty || cardForm.controls['title'].touched)">
+    <div *ngIf="cardForm.controls['title'].errors?.['required']">
+      Please enter a title
+    </div>
+    <div *ngIf="cardForm.controls['title'].errors?.['minlength']">
+      The title is too short
+    </div>
+    <div *ngIf="cardForm.controls['title'].errors?.['maxlength']">
+      The title is too long
+    </div>
   </div>
   <label>Description</label>
   <input type="text" formControlName="description">
@@ -12,13 +20,23 @@
   </div>
   <label>Img</label>
   <input type="text" formControlName="img">
-  <div class="alert">
-    {{getMessageImg()}}
+  <div class="alert" *ngIf="cardForm.controls['img'].invalid && (cardForm.controls['img'].dirty || cardForm.controls['img'].touched)">
+    <div *ngIf="cardForm.controls['img'].errors?.['required']">
+      Please enter a link to the image
+    </div>
+    <div *ngIf="cardForm.controls['img'].errors?.['pattern']">
+      The image link is invalid
+    </div>
   </div>
   <label>Link video</label>
   <input type="text" formControlName="video">
-  <div class="alert">
-    {{getMessageVideo()}}
+  <div class="alert" *ngIf="cardForm.controls['video'].invalid && (cardForm.controls['video'].dirty || cardForm.controls['video'].touched)">
+    <div *ngIf="cardForm.controls['video'].errors?.['required']">
+      Please enter a link to the video
+    </div>
+    <div *ngIf="cardForm.controls['video'].errors?.['pattern']">
+      The video link is invalid
+    </div>
   </div>
-  <button>Create card</button>
+  <button [disabled]="cardForm.invalid">Create card</button>
 </form>
