@@ -7,7 +7,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
-  videoRegexp = new RegExp('https:\/\/(www\.)*youtube\.com\/watch\?v=[A-z0-9]+');
   cardForm = new FormGroup({
     title: new FormControl('', [
       Validators.required,
@@ -15,11 +14,8 @@ export class AdminComponent {
       Validators.minLength(3),
     ]),
     description: new FormControl('', Validators.maxLength(255)),
-    img: new FormControl('', [
-      Validators.required,
-      Validators.pattern('https://i.ytimg.com/vi/[A-z0-9/]*.jpg'),
-    ]),
-    video: new FormControl('', [Validators.required, Validators.pattern(this.videoRegexp)]),
+    img: new FormControl('', [Validators.required, Validators.pattern('https://[A-z0-9]+')]),
+    video: new FormControl('', [Validators.required, Validators.pattern('https://[A-z0-9]+')]),
   });
   submit() {
     console.log('submit');

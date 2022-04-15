@@ -3,20 +3,33 @@
     Login
   </h3>
   <label class="label__login">login</label>
-  <input type="text" class="name" name="name" formControlName="name" placeholder="Please enter a login email">
-  <div class="alert" *ngIf="loginForm.controls['name'].invalid && loginForm.controls['name'].touched">
-    The login email is invalid.
+  <input type="text" class="name" name="name" formControlName="name">
+  <div class="alert" *ngIf="loginForm.controls['name'].invalid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched)">
+    <div *ngIf="loginForm.controls['name'].errors?.['required']">
+      Please enter a login email
+    </div>
+    <div *ngIf="loginForm.controls['name'].errors?.['email']">
+      The login email is invalid.
+    </div>
   </div>
   <label class="label__pass">password</label>
-  <input type="text" class="pass" name="pass" formControlName="pass" placeholder="Please enter a password">
-  <div class="alert" *ngIf="loginForm.controls['pass'].invalid && loginForm.controls['pass'].touched">
-    Your password isn't strong enough:
-    <ul>
-      <li>at least 8 characters</li>
-      <li>a mixture of both uppercase and lowercase letters</li>
-      <li>a mixture of letters and numbers</li>
-      <li>inclusion of at least one special character, e.g., ! @ # ? }</li>
-    </ul>
+  <input type="text" class="pass" name="pass" formControlName="pass">
+  <div class="alert" *ngIf="loginForm.controls['pass'].invalid && (loginForm.controls['pass'].dirty || loginForm.controls['pass'].touched)">
+    <div *ngIf="loginForm.controls['pass'].errors?.['required']">
+      Please enter a password
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['small']">
+      Your password isn't strong enough: at least 8 characters
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['notCase']">
+      Your password isn't strong enough: a mixture of both uppercase and lowercase letters
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['notNumber']">
+      Your password isn't strong enough: a mixture of letters and numbers
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['notSpecial']">
+      Your password isn't strong enough: inclusion of at least one special character, e.g., ! @ # ? }
+    </div>
   </div>
-  <button>Login</button>
+  <button [disabled]="loginForm.invalid">Login</button>
 </form>

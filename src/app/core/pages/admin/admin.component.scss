@@ -32,6 +32,11 @@ input {
   background: #e0e0e0;
   border: none;
   padding: 0 10px;
+  &.ng-invalid {
+    &.ng-touched {
+      border: 1px red solid;
+    }
+  }
 }
 .alert {
   color: red;
