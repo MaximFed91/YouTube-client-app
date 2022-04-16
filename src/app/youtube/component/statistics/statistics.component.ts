@@ -13,7 +13,6 @@ export class StatisticsComponent {
     return {
       viewCount: this.item.statistics.viewCount,
       likeCount: this.item.statistics.likeCount,
-      dislikeCount: this.item.statistics.dislikeCount,
       commentCount: this.item.statistics.commentCount,
     };
   }

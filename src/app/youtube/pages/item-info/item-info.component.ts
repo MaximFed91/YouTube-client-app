@@ -19,7 +19,7 @@ export class ItemInfoComponent implements OnInit {
   }
   getSours() {
     return {
-      imgUrl: this.item.snippet.thumbnails.standard.url,
+      imgUrl: this.item.snippet.thumbnails.high.url,
       title: this.item.snippet.title,
       date: new Date(this.item.snippet.publishedAt).toDateString(),
       description: this.item.snippet.description,

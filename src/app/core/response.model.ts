@@ -33,7 +33,6 @@ export interface IResponseItem {
   statistics: {
     viewCount: string;
     likeCount: string;
-    dislikeCount: string;
     favoriteCount: string;
     commentCount: string;
   };
@@ -47,4 +46,23 @@ export interface IResponse {
     resultsPerPage: number;
   };
   items: IResponseItem[];
+}
+export interface ISearchItem {
+  kind: string;
+  etag: string;
+  id: {
+    kind: string;
+    videoId: string;
+  };
+}
+export interface ISearchResponse {
+  kind: string;
+  etag: string;
+  nextPageToken: string;
+  regionCode: string;
+  pageInfo: {
+    totalResults: number;
+    resultsPerPage: number;
+  };
+  items: ISearchItem[];
 }
