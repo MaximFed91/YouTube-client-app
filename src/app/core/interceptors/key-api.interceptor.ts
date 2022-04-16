@@ -9,7 +9,7 @@ export class KeyApiInterceptor implements HttpInterceptor {
   }
   addKeyApi(request: HttpRequest<unknown>) {
     const indx = request.url.indexOf('=') + 1;
-    const keyApi = 'AIzaSyBEMrgHvXvly2RAkkxWWnE8zZFkIO8KZQ8';
+    const keyApi = 'AIzaSyCn_ILnnyNqIEaRzthVXdiiKTCxMITFvBY';
     const requestUrl = `${request.url.slice(0, indx)}${keyApi}${request.url.slice(indx)}`;
     return request.clone({
       url: requestUrl,
