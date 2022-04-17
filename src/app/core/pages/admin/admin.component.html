@@ -25,7 +25,7 @@
       Please enter a link to the image
     </div>
     <div *ngIf="cardForm.controls['img'].errors?.['pattern']">
-      The image link is invalid
+      The image link is invalid: must be like https://i.ytimg.com/vi/[videoId]/mqdefault.jpg
     </div>
   </div>
   <label>Link video</label>
@@ -35,7 +35,7 @@
       Please enter a link to the video
     </div>
     <div *ngIf="cardForm.controls['video'].errors?.['pattern']">
-      The video link is invalid
+      The video link is invalid: must be like https://youtu.be/[videoId]
     </div>
   </div>
   <button [disabled]="cardForm.invalid">Create card</button>

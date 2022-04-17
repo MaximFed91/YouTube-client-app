@@ -14,8 +14,14 @@ export class AdminComponent {
       Validators.minLength(3),
     ]),
     description: new FormControl('', Validators.maxLength(255)),
-    img: new FormControl('', [Validators.required, Validators.pattern('https://[A-z0-9]+')]),
-    video: new FormControl('', [Validators.required, Validators.pattern('https://[A-z0-9]+')]),
+    img: new FormControl('', [
+      Validators.required,
+      Validators.pattern('https://i\\.ytimg\\.com/vi/[A-z0-9-]{11}/mqdefault\\.jpg'),
+    ]),
+    video: new FormControl('', [
+      Validators.required,
+      Validators.pattern('https://youtu\\.be/[A-z0-9-]{11}'),
+    ]),
   });
   submit() {
     console.log('submit');
