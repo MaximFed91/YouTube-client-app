@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardGuard } from './core/guards/auth-guard.guard';
+import { AdminComponent } from './core/pages/admin/admin.component';
 import { MainComponent } from './core/pages/main/main.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     canLoad: [AuthGuardGuard],
+    canActivate: [AuthGuardGuard],
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
     canActivate: [AuthGuardGuard],
   },
   {

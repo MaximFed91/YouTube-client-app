@@ -1,10 +1,35 @@
-<div class="form">
+<form [formGroup]="loginForm" class="form" (ngSubmit)="submit()">
   <h3 class="title">
     Login
   </h3>
-  <p class="label__login">login</p>
-  <input type="text" class="name" [(ngModel)]="name">
-  <p class="label__pass">password</p>
-  <input type="text" class="pass" [(ngModel)]="pass">
-  <button (click)="login()">Login</button>
-</div>
+  <label class="label__login">login</label>
+  <input type="text" class="name" name="name" formControlName="name">
+  <div class="alert" *ngIf="loginForm.controls['name'].invalid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched)">
+    <div *ngIf="loginForm.controls['name'].errors?.['required']">
+      Please enter a login email
+    </div>
+    <div *ngIf="loginForm.controls['name'].errors?.['email']">
+      The login email is invalid.
+    </div>
+  </div>
+  <label class="label__pass">password</label>
+  <input type="text" class="pass" name="pass" formControlName="pass">
+  <div class="alert" *ngIf="loginForm.controls['pass'].invalid && (loginForm.controls['pass'].dirty || loginForm.controls['pass'].touched)">
+    <div *ngIf="loginForm.controls['pass'].errors?.['required']">
+      Please enter a password
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['small']">
+      Your password isn't strong enough: at least 8 characters
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['notCase']">
+      Your password isn't strong enough: a mixture of both uppercase and lowercase letters
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['notNumber']">
+      Your password isn't strong enough: a mixture of letters and numbers
+    </div>
+    <div *ngIf="!loginForm.controls['pass'].errors?.['required'] && loginForm.controls['pass'].errors?.['notSpecial']">
+      Your password isn't strong enough: inclusion of at least one special character, e.g., ! @ # ? }
+    </div>
+  </div>
+  <button [disabled]="loginForm.invalid">Login</button>
+</form>
