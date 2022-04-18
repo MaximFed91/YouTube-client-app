@@ -8,6 +8,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MainComponent } from './pages/main/main.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AdminComponent } from './pages/admin/admin.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { KeyApiInterceptor } from './interceptors/key-api.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     AdminComponent,
   ],
   imports: [CommonModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: KeyApiInterceptor, multi: true }],
   exports: [HeaderComponent],
 })
 export class CoreModule {}

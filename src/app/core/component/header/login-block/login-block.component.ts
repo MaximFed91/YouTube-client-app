@@ -8,14 +8,17 @@ import { LoginService } from 'src/app/auth/services/login.service';
 })
 export class LoginBlockComponent implements OnInit {
   name = 'Your Name';
+  button = 'Login';
   constructor(private authService: LoginService) {}
 
   ngOnInit(): void {
     this.authService.userName$.subscribe((name) => {
       this.name = name;
+      this.button = 'Logout';
     });
     if (localStorage.getItem('user')) {
       this.name = JSON.parse(localStorage.getItem('user')!).user;
+      this.button = 'Logout';
     }
   }
   checkAuth() {
@@ -23,6 +26,7 @@ export class LoginBlockComponent implements OnInit {
       localStorage.removeItem('user');
       this.authService.isLogin = false;
       this.name = 'Your Name';
+      this.button = 'Login';
     }
   }
 }
