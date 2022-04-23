@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { addCard } from 'src/app/redux/actions/app.actions';
 
 @Component({
   selector: 'app-admin',
@@ -7,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
+  constructor(private store: Store) {}
   cardForm = new FormGroup({
     title: new FormControl('', [
       Validators.required,
@@ -24,6 +27,7 @@ export class AdminComponent {
     ]),
   });
   submit() {
-    console.log('submit');
+    this.store.dispatch(addCard({ userCard: this.cardForm.value }));
+    this.cardForm.reset();
   }
 }

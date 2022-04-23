@@ -1,7 +1,5 @@
-<div *ngIf="items.length" class="results__wrapper">
-  <p *ngIf="items.length === 0"> Ничего не нашлось ((</p>
-  <app-search-item
-    *ngFor="let item of items | filter: str | sort: sort.sortBy: sort.order"
-    [item]="item"
-  ></app-search-item>
+<div class="results__wrapper">
+  <app-user-card *ngFor="let item of userCards$ | async" [item]="item"></app-user-card>
+  <app-search-item *ngFor="let item of youtubeCards$ | async | filter: str | sort: sort.sortBy: sort.order" [item]="item">
+  </app-search-item>
 </div>
