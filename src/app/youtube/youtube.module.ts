@@ -9,6 +9,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { ItemInfoComponent } from './pages/item-info/item-info.component';
 import { StatisticsComponent } from './component/statistics/statistics.component';
+import { UserCardComponent } from './component/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { StatisticsComponent } from './component/statistics/statistics.component
     SortPipe,
     ItemInfoComponent,
     StatisticsComponent,
+    UserCardComponent,
   ],
   imports: [CommonModule, YoutubeRoutingModule],
 })

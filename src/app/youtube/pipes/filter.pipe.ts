@@ -5,11 +5,14 @@ import { IResponseItem } from 'src/app/core/response.model';
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: IResponseItem[], str?: string): IResponseItem[] {
-    return str
-      ? items.filter((item) =>
-          item.snippet.title.trim().toLowerCase().includes(str.trim().toLowerCase()),
-        )
-      : items;
+  transform(items: IResponseItem[] | null, str?: string): IResponseItem[] | null {
+    if (items) {
+      return str
+        ? items.filter((item) =>
+            item.snippet.title.trim().toLowerCase().includes(str.trim().toLowerCase()),
+          )
+        : items;
+    }
+    return null;
   }
 }

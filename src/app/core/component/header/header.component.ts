@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { debounceTime, distinctUntilChanged, filter, fromEvent, map, Subscription } from 'rxjs';
+import { addYoutubeCard } from 'src/app/redux/actions/app.actions';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -14,7 +16,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   subscriptionKeyup!: Subscription;
   subscription!: Subscription;
   @ViewChild('search', { static: true }) private searchInput!: ElementRef<HTMLInputElement>;
-  constructor(private router: Router, private readonly searchService: SearchService) {}
+  constructor(
+    private router: Router,
+    private readonly searchService: SearchService,
+    private store: Store,
+  ) {}
 
   ngOnInit(): void {
     this.subscriptionKeyup = fromEvent(this.searchInput.nativeElement, 'keyup')
@@ -27,8 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((str) => {
         this.router.navigate(['/search']);
         this.subscription = this.searchService.getVideo(str).subscribe((items) => {
-          this.searchService.searchResult$.next(items);
-          this.searchService.result = items;
+          this.store.dispatch(addYoutubeCard({ responseItems: items }));
         });
       });
   }

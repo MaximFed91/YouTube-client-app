@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { from, map, Observable, reduce, ReplaySubject, switchMap } from 'rxjs';
-import { IResponse, IResponseItem, ISearchResponse } from '../response.model';
+import { from, map, Observable, reduce, switchMap } from 'rxjs';
+import { IResponse, ISearchResponse } from '../response.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
-  searchResult$ = new ReplaySubject<IResponseItem[]>(1);
-  result!: IResponseItem[];
   constructor(private http: HttpClient) {}
   getVideo(searchStr: string) {
     return this.http
